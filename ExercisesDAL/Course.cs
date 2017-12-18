@@ -6,24 +6,26 @@ namespace ExercisesDAL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Division : SchoolEntity
+    [Table("Courses")]
+    public partial class Course : SchoolEntity
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Division()
+        public Course()
         {
-            Courses = new HashSet<Course>();
-            Students = new HashSet<Student>();
+            Grades = new HashSet<Grade>();
         }
 
 
         [StringLength(50)]
         public string Name { get; set; }
 
+        public int Credits { get; set; }
+
+        public int DivisionId { get; set; }
+
+        public virtual Division Division { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Course> Courses { get; set; }
-
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<Grade> Grades { get; set; }
     }
 }

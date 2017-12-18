@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu Example</title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Info3070Exercises</a>
+            <div class="col-xs-2"></div>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav" id="menu">
+                <li><a href="/studentlookup.html">Original Lookup</a></li>
+                <li><a href="/modalexample.html">Modals</a></li>
+                <li><a href="/lab8a.html#theModal" data-toggle="modal">Lab 8a</a></li> 
+            </ul>
+        </div>
+    </nav>
+    <div class="modal fade text-center" data-backdrop="static" id="theModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">X</button>
+                    <h1 align= left>Lab 8a</h1>
+                </div>
+                <div class="modal-body">
+                    <div style="top:5%;padding:0%;">
+                         <div class="panel panel-default">
+                            <div class="panel-heading text-center">
+                                Student Information
+                            </div>
+                            <div class="panel-body text-left">
+                                <div class="row">
+                                    <div class="col-xs-3" style="font-weight:bold">Title:</div>
+                                    <div class="col-xs-2" id="title"></div>
+                                    <div class="col-xs-2 text-right" style="font-weight:bold">First:</div>
+                                    <div class="col-xs-5" id="firstname"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3" style="font-weight:bold">Phone#:</div>
+                                    <div class="col-xs-8" id="phone"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3" style="font-weight:bold">Email:</div>
+                                    <div class="col-xs-8" id="email"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-xs-3" style="font-weight:bold">Surname:</div>
+                                    <div class="col-xs-8">
+                                        <input type="text" placeholder="enter last name" id="TextBoxLastname" class="form-control" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer text-center">
+                                <h1></h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" value="Find Student" id="getbutton" />
+                    <div id="status" class="text-left" style="padding-top:5%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/jquery-3.2.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/studentlookup.js"></script>
+</body>
+</html>

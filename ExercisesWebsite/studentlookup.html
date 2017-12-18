@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Lookup</title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="viewport" content="width=device-width, initial-scale=1">   
+</head>
+<body>
+    <div style="top:5%;padding:5%;">
+        <div class="panel panel-default">
+            <div class="panel-heading text-center">
+                Student Information
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xs-3" style="font-weight:bold">Title:</div>
+                    <div class="col-xs-2" id="title"></div>
+                    <div class="col-xs-2 text-right" style="font-weight:bold">First:</div>
+                    <div class="col-xs-5" id="firstname"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3" style="font-weight:bold">Phone#:</div>
+                    <div class="col-xs-8" id="phone"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3" style="font-weight:bold">Email:</div>
+                    <div class="col-xs-8" id="email"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-3" style="font-weight:bold">Surname:</div>
+                    <div class="col-xs-8">
+                        <input type="text" placeholder="enter last name" id="TextBoxLastname" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-center">
+                <input type="button" value="Find Student" id="getbutton" />
+                <div id="status" class="text-left" style="padding-top:5%;"></div>
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="Scripts/studentlookup.js"></script>
+</body>
+</html>

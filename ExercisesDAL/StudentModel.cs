@@ -2,19 +2,26 @@
 using System.Linq;
 using System.Reflection;
 using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
 
 namespace ExercisesDAL
 {
     public class StudentModel
     {
+        IRepository<Student> repo;
+
+        public StudentModel()
+        {
+            repo = new SomeSchoolRepository<Student>();
+        }
+
         public Student GetByLastname(string name)
         {
-            Student selectedStudent = null;
+            List<Student> selectedStudents = null;
 
             try
             {
-                SomeSchoolContext ctx = new SomeSchoolContext();
-                selectedStudent = ctx.Students.FirstOrDefault(stu => stu.LastName == name);
+                selectedStudents = repo.GetByExpression(stu => stu.LastName == name);
             }
             catch (Exception ex)
             {
@@ -22,17 +29,16 @@ namespace ExercisesDAL
                 throw ex;
             }
 
-            return selectedStudent;
+            return selectedStudents.FirstOrDefault();
         }
 
         public Student GetById(int id)
         {
-            Student selectedStudent = null;
+            List<Student> selectedStudents = null;
 
             try
             {
-                SomeSchoolContext ctx = new SomeSchoolContext();
-                selectedStudent = ctx.Students.FirstOrDefault(stu => stu.Id == id);
+                selectedStudents = repo.GetByExpression(stu => stu.Id == id);
             }
             catch (Exception ex)
             {
@@ -41,7 +47,7 @@ namespace ExercisesDAL
                 throw ex;
             }
 
-            return selectedStudent;
+            return selectedStudents.FirstOrDefault();
         }
 
         public List<Student> GetAll()
@@ -50,8 +56,7 @@ namespace ExercisesDAL
 
             try
             {
-                SomeSchoolContext ctx = new SomeSchoolContext();
-                allStudents = ctx.Students.ToList();
+                allStudents = repo.GetAll();
             }
             catch (Exception ex)
             {
@@ -67,9 +72,7 @@ namespace ExercisesDAL
         {
             try
             {
-                SomeSchoolContext ctx = new SomeSchoolContext();
-                ctx.Students.Add(newStudent);
-                ctx.SaveChanges();
+               repo.Add(newStudent); 
             }
             catch (Exception ex)
             {
@@ -81,16 +84,13 @@ namespace ExercisesDAL
             return newStudent.Id;
         }
 
-        public int Update(Student updatedStudent)
+        public UpdateStatus Update(Student updatedStudent)
         {
-            int studentsUpdated = -1;
+            UpdateStatus opStatus = UpdateStatus.Failed;
 
             try
             {
-                SomeSchoolContext ctx = new SomeSchoolContext();
-                Student currentStudent = ctx.Students.FirstOrDefault(stu => stu.Id == updatedStudent.Id);
-                ctx.Entry(currentStudent).CurrentValues.SetValues(updatedStudent);
-                studentsUpdated = ctx.SaveChanges();
+                opStatus = repo.Update(updatedStudent);
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace ExercisesDAL
                 throw ex;
             }
 
-            return studentsUpdated;
+            return opStatus;
         }
 
         public int Delete(int id)
@@ -108,10 +108,7 @@ namespace ExercisesDAL
 
             try
             {
-                SomeSchoolContext ctx = new SomeSchoolContext();
-                Student currentStudent = ctx.Students.FirstOrDefault(stu => stu.Id == id);
-                ctx.Students.Remove(currentStudent);
-                studentsDeleted = ctx.SaveChanges();
+                studentsDeleted = repo.Delete(id);
             }
             catch (Exception ex)
             {

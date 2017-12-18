@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="StudentModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StudentViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -66,6 +67,10 @@
     <ProjectReference Include="..\ExercisesDAL\ExercisesDAL.csproj">
       <Project>{52e9a909-8a3c-498b-b01e-0b3ea19310a2}</Project>
       <Name>ExercisesDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExercisesViewModels\ExercisesViewModels.csproj">
+      <Project>{0efb00b8-5774-4efa-8d8e-c8c181aa4685}</Project>
+      <Name>ExercisesViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

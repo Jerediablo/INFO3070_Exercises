@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>CRUD</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/student.css" rel="stylesheet" />
+    <meta charset="utf-8" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Info3070Exercises</a>
+            <div class="col-xs-2">&nbsp;</div>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav" id="menu">
+                <li><a href="/studentlookup.html">Original Lookup</a></li>
+                <li><a href="/modalexample.html">Modals</a></li>
+                <li><a href="/lab8a.html#theModal" data-toggle="modal">Lab 8a</a></li>
+                <li><a href="/lab10.html" data-toggle="modal">Lab 10</a></li>
+                <li><a href="/studentlist.html" data-toggle="modal">List Example</a></li>
+                <li><a href="/studentadd.html" data-toggle="modal">Add Example</a></li>
+                <li class="active"><a href="/studentcrud.html" data-toggle="modal">CRUD</a></li>
+            </ul>
+            <div class ="input-group col-xs-push-3 col-sm-2 col-xs-4 navbar navbar-brand">
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span>
+                </span>
+                <input type="text" id="srch" class="form-control form-md">
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div style="padding-top:15%;">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center" id="status" style="font-weight:bold;"></div>
+                <div class="panel-body">
+                    <div id="studentList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="theModal" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">X</button>
+                    <div id="modaltitle"></div>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                            Student Information
+                        </div>
+                        <div class="panel-body" id="student" data-id="" data-timer="">
+                            <div class="row">
+                                <div class="col-xs-4"><strong>Title:</strong></div>
+                                <div class="col-xs-8"><input type="text" placeholder="enter title" id="TextBoxTitle" class="form-control" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4"><strong>First:</strong></div>
+                                <div class="col-xs-8"><input type="text" placeholder="enter first name" id="TextBoxFirstname" class="form-control" value="Joe" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4"><strong>Surname:</strong></div>
+                                <div class="col-xs-8"><input type="text" placeholder="enter last name" id="TextBoxLastname" class="form-control" value="Blow" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4"><strong>Phone#:</strong></div>
+                                <div class="col-xs-8"><input type="text" placeholder="enter phone number" id="TextBoxPhone" class="form-control" value="(555)555-5555" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4"><strong>Email:</strong></div>
+                                <div class="col-xs-8"><input type="text" placeholder="enter email" id="TextBoxEmail" class="form-control" value="jb@ss.com" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4"><strong>Division:</strong></div>
+                                <div class="col-xs-8">
+                                    <select id="ddlDivs" name="ddlDivs" class="form-control"></select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="button" value="" id="actionbutton" class="btn btn-default" />
+                    <input type="button" value="Delete" id="deletebutton" class="btn btn-default"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/studentcrud.js"></script>
+</body>
+</html>

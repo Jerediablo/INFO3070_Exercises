@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 10</title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Info3070Exercises</a>
+            <div class="col-xs-2">&nbsp;</div>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav" id="menu">
+                <li><a href="/studentlookup.html">Original Lookup</a></li>
+                <li><a href="/modalexample.html">Modals</a></li>
+                <li><a href="/lab8a.html#theModal" data-toggle="modal">Lab 8a</a></li>
+                <li><a href="/lab10.html" data-toggle="modal">Lab 10</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div style="padding-top:15%;">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    Update Student
+                </div>
+                <div class="panel-body">
+                    <div class="col-xs-6">
+                        <input type="text" placeholder="enter last name" id="TextBoxFindLastname" class="form-control" />
+                    </div>
+                    <div class="col-xs-3 text-right" style="padding-top:2%;">
+                        <input type="button" value="Find" id="getbutton" />
+                    </div>
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="theModal" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">X</button>
+                    <h4>Update Student</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+                        <div class="panel-heading text-center">
+                            Student Information
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-xs-4">Title:</div>
+                                <div class="col-xs-8"><input type="text" placeholder="enter title" id="TextBoxTitle" class="form-control" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">First:</div>
+                                <div class="col-xs-8"><input type="text" placeholder="enter first name" id="TextBoxFirstname" class="form-control" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">Surname:</div>
+                                <div class="col-xs-8"><input type="text" placeholder="enter last name" id="TextBoxLastname" class="form-control" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">Phone#:</div>
+                                <div class="col-xs-8"><input type="text" placeholder="enter phone number" id="TextBoxPhoneno" class="form-control" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">Email:</div>
+                                <div class="col-xs-8"><input type="text" placeholder="enter email" id="TextBoxEmail" class="form-control" /></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">Picture:</div>
+                                <div class="col-xs-8" id="ImageHolder" style="padding-top:2%"></div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">&nbsp;</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="col-xs-8"><input id="fileUpload" type="file" /></div>
+                    <div class="col-xs-4"><input type="button" value="Update" id="updatebutton"/></div>
+                    <div id="status" class="text-left" style="padding-top:5%;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/studentupdatev2.js"></script>
+</body>
+</html>

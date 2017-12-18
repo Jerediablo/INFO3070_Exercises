@@ -6,9 +6,14 @@ namespace ExercisesDAL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Student
+    public partial class Student : SchoolEntity
     {
-        public int Id { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Student()
+        {
+            Grades = new HashSet<Grade>();
+        }
+
 
         [StringLength(4)]
         public string Title { get; set; }
@@ -29,11 +34,10 @@ namespace ExercisesDAL
 
         public byte[] Picture { get; set; }
 
-        [Column(TypeName = "timestamp")]
-        [MaxLength(8)]
-        [Timestamp]
-        public byte[] Timer { get; set; }
 
         public virtual Division Division { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Grade> Grades { get; set; }
     }
 }

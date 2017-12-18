@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Validation Example</title>
+    <meta charset="utf-8" />
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="Content/student.css" rel="stylesheet" />
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+<body>
+    <div class="container">
+        <div class="col-xs-2">&nbsp;</div>
+        <div class="col-xs-8" style="top:20px;">
+            <div class="panel panel-default">
+                <div class="panel-heading text-center">
+                    Validate Student Information
+                </div>
+                <div class="panel-body">
+                    <div class="text-left col-xs-5">
+                        <input type="text" placeholder="enter last name" id="TextBoxFindLastname" class="form-control" />
+                    </div>
+                    <input type="button" value="Find Student" id="stugetbutton" />
+                </div>
+                <div class="panel-footer"></div>
+            </div>
+        </div>
+    </div>
+    <form id="StudentModalForm" name="StudentModalForm" method="post" action="">
+        <div class="modal fade text-center" id="updateModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">X</button>
+                        <h4>Test jQuery Validation</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-xs-4">Title:</div>
+                            <div class="col-xs-8"><input type="text" placeholder="enter title" id="TextBoxTitle" name="TextBoxTitle" class="form-control" /></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">First:</div>
+                            <div class="col-xs-8">
+                                <input type="text" placeholder="enter first name" id="TextBoxFirstname" name="TextBoxFirstname" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">Surname:</div>
+                            <div class="col-xs-8"><input type="text" placeholder="enter last name" id="TextBoxLastname" name="TextBoxLastname" class="form-control" /></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">Phone#:</div>
+                            <div class="col-xs-8"><input type="text" placeholder="enter phone#" id="TextBoxPhone" name="TextBoxPhone" class="form-control" /></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">Email:</div>
+                            <div class="col-xs-8"><input type="text" placeholder="enter email" id="TextBoxEmail" name="TextBoxEmail" class="form-control" /></div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-xs-12">
+                            <input type="submit" value="Validate Student" id="stuvalidatebutton" />
+                        </div>
+                        <label class="col-xs-12 text-center row" id="lblstatus" style="padding-top:10px;"></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script src="Scripts/jquery-3.2.1.min.js"></script>
+    <script src="Scripts/jquery.validate.min.js"></script>
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="Scripts/validationexample.js"></script>
+</body>
+</html>

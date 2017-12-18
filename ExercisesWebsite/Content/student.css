@@ -1,0 +1,12 @@
+﻿div.error {
+    color: red;
+    font-weight: bold;
+}
+
+.input-group-addon {
+    background-color: white;
+}
+
+#srch {
+    border-left: 0;
+}

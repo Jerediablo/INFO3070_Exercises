@@ -12,11 +12,27 @@ namespace ExercisesDAL
         {
         }
 
+        public virtual DbSet<Course> Courses { get; set; }
         public virtual DbSet<Division> Divisions { get; set; }
+        public virtual DbSet<Grade> Grades { get; set; }
         public virtual DbSet<Student> Students { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Course>()
+                .Property(e => e.Name)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Course>()
+                .Property(e => e.Timer)
+                .IsFixedLength();
+
+            modelBuilder.Entity<Course>()
+                .HasMany(e => e.Grades)
+                .WithRequired(e => e.Cours)
+                .HasForeignKey(e => e.CourseId)
+                .WillCascadeOnDelete(false);
+
             modelBuilder.Entity<Division>()
                 .Property(e => e.Name)
                 .IsUnicode(false);
@@ -26,9 +42,22 @@ namespace ExercisesDAL
                 .IsFixedLength();
 
             modelBuilder.Entity<Division>()
+                .HasMany(e => e.Courses)
+                .WithRequired(e => e.Division)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Division>()
                 .HasMany(e => e.Students)
                 .WithRequired(e => e.Division)
                 .WillCascadeOnDelete(false);
+
+            modelBuilder.Entity<Grade>()
+                .Property(e => e.Comments)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Grade>()
+                .Property(e => e.Timer)
+                .IsFixedLength();
 
             modelBuilder.Entity<Student>()
                 .Property(e => e.Title)
@@ -53,6 +82,11 @@ namespace ExercisesDAL
             modelBuilder.Entity<Student>()
                 .Property(e => e.Timer)
                 .IsFixedLength();
+
+            modelBuilder.Entity<Student>()
+                .HasMany(e => e.Grades)
+                .WithRequired(e => e.Student)
+                .WillCascadeOnDelete(false);
         }
     }
 }
